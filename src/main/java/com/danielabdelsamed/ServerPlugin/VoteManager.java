@@ -14,7 +14,7 @@ public class VoteManager {
     private static VoteManager i = null;
 
     // Timer and vote setup
-    private final Timer timer = new Timer();
+    private Timer timer = new Timer();
     private final Set<Player> activeVotes = new HashSet<>();
 
     // Chat prefix
@@ -40,8 +40,7 @@ public class VoteManager {
             server.broadcastMessage( prefix + ChatColor.YELLOW + player.getDisplayName() + ChatColor.WHITE + " has voted to stop the rain.");
             server.broadcastMessage( prefix + ChatColor.RED + votesNeeded + ChatColor.WHITE + " more vote"+ (votesNeeded != 1 ? "s" : "") + " needed");
             // Set up a timer that cancels the vote after 60 seconds
-            timer.purge();
-            timer.cancel();
+            clearVotes();
             timer.schedule(new TimerTask() {
                 @Override
                 public void run() {
@@ -64,8 +63,14 @@ public class VoteManager {
     public void clearVotes() {
         // Clear vote set and purge/reset timers
         activeVotes.clear();
-        timer.purge();
-        timer.cancel();
+        try {
+            timer.cancel();
+            timer.purge();
+        } catch (Error e) {
+            //
+        } finally {
+            timer = new Timer();
+        }
     }
 
     // Returns a singleton instance
