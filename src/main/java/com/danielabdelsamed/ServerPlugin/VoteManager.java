@@ -32,7 +32,7 @@ public class VoteManager {
 
         // Determine the amount of votes needed from the percent required and the player count
         int percentRequired = 50;
-        int votesNeeded = (int) Math.floor((totalPlayers - activeVotes.size()) * (percentRequired / 100.0));
+        int votesNeeded = (int) Math.ceil(totalPlayers * (percentRequired / 100.0) - activeVotes.size());
 
         // If more than one vote is needed
         if (votesNeeded > 0) {

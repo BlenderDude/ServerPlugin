@@ -11,6 +11,7 @@ public class ServerListener implements Listener {
     public void OnChat(AsyncPlayerChatEvent event) {
         // Get the player
         Player player = event.getPlayer();
+
         // Create the array of possible colors to assign to players
         ChatColor[] colors = new ChatColor[] { ChatColor.AQUA, ChatColor.BLUE, ChatColor.GOLD, ChatColor.GRAY, ChatColor.GREEN, ChatColor.LIGHT_PURPLE, ChatColor.RED, ChatColor.YELLOW };
 
