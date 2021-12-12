@@ -18,7 +18,7 @@ public class VoteManager {
     private final Set<Player> activeVotes = new HashSet<>();
 
     // Chat prefix
-    private final String prefix = ChatColor.BLUE + "[StopRain] " + ChatColor.WHITE;
+    private final String prefix = "[" + ChatColor.BLUE + "StopRain" + ChatColor.RESET + "] ";
 
     public void addVote(Player player){
         // Get the server from the player
