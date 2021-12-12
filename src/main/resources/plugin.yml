@@ -1,0 +1,7 @@
+name: ServerPlugin
+version: 1.0
+main: com.danielabdelsamed.ServerPlugin.ServerPlugin
+commands:
+  stoprain:
+    description: Vote for the weather
+    usage: /<command>
